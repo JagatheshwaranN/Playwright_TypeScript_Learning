@@ -7,7 +7,7 @@ npx playwright test
 To run specific playwright test
 npx playwright test <test_script_name>
 
-To run specific playwright tests
+To run specific set of playwright tests
 npx playwright test <test_script1_name> <test_script2_name>
 
 
