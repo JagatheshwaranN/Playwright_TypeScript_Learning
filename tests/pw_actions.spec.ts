@@ -1,7 +1,6 @@
 import {test, expect, Locator} from '@playwright/test';
 
 test.describe('PW Actions', () => {
-  let exampleLocator: Locator;  
     test.beforeEach(async ({page}) => {
         await page.goto('https://testautomationpractice.blogspot.com/');
     })
