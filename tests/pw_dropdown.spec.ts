@@ -40,7 +40,7 @@ test.describe('PW Dropdown Actions', () => {
     test('Multi Select Dropdown', async ({page})=> {
         const multiSelectDropdown:Locator = page.locator('#superheros');
         await expect(multiSelectDropdown).toBeVisible();
-        await multiSelectDropdown.selectOption([{label:'Aquaman'}, {value:'bt'},{index: 0}]);
+        await multiSelectDropdown.selectOption([{label:'Aquaman'}, {value:'bt'}, {index: 0}]);
         await page.waitForTimeout(2000);
     })
    
@@ -54,7 +54,7 @@ test.describe('PW Dropdown Actions', () => {
         expect(originalOptionsText).not.toEqual(sortedOptionsText);
     })
 
-    test.only('Check Duplicate Options in Dropdown', async ({page}) => {
+    test('Check Duplicate Options in Dropdown', async ({page}) => {
         const dropdown:Locator = page.locator('#fruits > option');
         const optionsText:string[] = await dropdown.allTextContents();
         const duplicateOptions:string[] = [];
@@ -73,7 +73,45 @@ test.describe('PW Dropdown Actions', () => {
             console.log("No duplicate options found in the dropdown.");
         }
     })
-
 });
 
+test.describe.only('Handling Custom Dropdowns', () => {
+   
+    test('Auto Suggestion Dropdown', async ({page}) => {
+        await page.goto('https://www.amazon.com/');
+        const autoSuggestInput:Locator = page.locator('#twotabsearchtextbox');
+        await expect(autoSuggestInput).toBeVisible();
+        await autoSuggestInput.fill('smart');
+         await page.waitForTimeout(2000);
+        const autoSuggestOptions:Locator = page.locator('div.s-suggestion');
+        const optionsCount = await autoSuggestOptions.count();
+        console.log("Total Auto-Suggest Options:", optionsCount);
+        for(let i=1; i<=optionsCount; i++) {
+            const optionsText = await page.locator(`//div[@id="sac-suggestion-row-${i}"]`).textContent();
+            console.log(`Option ${i}:`, optionsText?.trim());
+        }
+        await page.waitForTimeout(2000);
+    })
+
+    test.only('Custom Dropdown - Browser Selection', async ({page}) => {
+        await page.goto('file:///C:/Users/jagat/Downloads/Dropdown.html');
+        const dropdownTrigger:Locator = page.locator('.custom-select');
+        await expect(dropdownTrigger).toBeVisible();
+        await dropdownTrigger.click();
+        const dropdownOptions :Locator = page.locator('.select-items');
+        await expect(dropdownOptions).toBeVisible();
+        const dropdownOptionsTexts:string[] = await dropdownOptions.locator('li').allTextContents(); 
+        console.log("Custom Dropdown Options:", dropdownOptionsTexts);
+        const optionToSelect = 'Safari';
+        for(const optionText of dropdownOptionsTexts) {
+            if(optionText === optionToSelect) {
+                await dropdownOptions.locator('li', {hasText: optionText}).click();
+                console.log(`Selected Option: ${optionText}`);
+                break;
+            }
+        }
+        await page.waitForTimeout(2000);
+    })
+
+})
     
