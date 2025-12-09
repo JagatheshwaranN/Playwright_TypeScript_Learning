@@ -82,7 +82,7 @@ test.describe.only('Handling Custom Dropdowns', () => {
         const autoSuggestInput:Locator = page.locator('#twotabsearchtextbox');
         await expect(autoSuggestInput).toBeVisible();
         await autoSuggestInput.fill('smart');
-         await page.waitForTimeout(2000);
+        await page.waitForTimeout(2000);
         const autoSuggestOptions:Locator = page.locator('div.s-suggestion');
         const optionsCount = await autoSuggestOptions.count();
         console.log("Total Auto-Suggest Options:", optionsCount);
@@ -94,7 +94,7 @@ test.describe.only('Handling Custom Dropdowns', () => {
     })
 
     test.only('Custom Dropdown - Browser Selection', async ({page}) => {
-        await page.goto('file:///C:/Users/jagat/Downloads/Dropdown.html');
+        await page.goto('file:///D:/Environments/VisualStudio/Playwright_Learning/tests/files/Dropdown.html');
         const dropdownTrigger:Locator = page.locator('.custom-select');
         await expect(dropdownTrigger).toBeVisible();
         await dropdownTrigger.click();
