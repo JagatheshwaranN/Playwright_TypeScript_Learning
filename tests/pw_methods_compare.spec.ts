@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+
 test.describe('PW Methods Compare', () => {
 
     test.beforeEach(async ({ page }) => {
