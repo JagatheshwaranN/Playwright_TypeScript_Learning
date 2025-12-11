@@ -2,7 +2,7 @@ import { test, expect, Locator } from '@playwright/test';
 import { hash } from 'crypto';
 import { cp } from 'fs';
 
-test.describe('PW Table Component', () => {
+test.describe('PW Table', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('https://testautomationpractice.blogspot.com/');
     })
@@ -89,7 +89,7 @@ test.describe('PW Table Component', () => {
 
 })
 
-test.describe.only('PW Table Component - Focused Suite', () => {
+test.describe.only('PW Pagination Table', () => {
     test.beforeEach(async ({ page }) => {  
         await page.goto('https://datatables.net/examples/basic_init/zero_configuration.html');
     })
