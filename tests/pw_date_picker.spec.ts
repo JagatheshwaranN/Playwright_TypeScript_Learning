@@ -19,12 +19,12 @@ test.describe('PW Date Picker', () => {
         const monthToSelect = 'February';
         const yearToSelect = '2026';
 
-        await newFunction(dateToSelect, monthToSelect, yearToSelect, page);
+        await selectDate(dateToSelect, monthToSelect, yearToSelect, page);
         await expect(datePicker).toHaveValue('02/15/2026');
         await page.waitForTimeout(2000);
     })
 
-    async function newFunction(dateToSelect: string, monthToSelect: string, yearToSelect: string, page: Page) {
+    async function selectDate(dateToSelect: string, monthToSelect: string, yearToSelect: string, page: Page) {
         const monthMap: { [key: string]: number } = {
             'January': 1, 'February': 2, 'March': 3, 'April': 4, 'May': 5, 'June': 6,
             'July': 7, 'August': 8, 'September': 9, 'October': 10, 'November': 11,'December': 12 };
