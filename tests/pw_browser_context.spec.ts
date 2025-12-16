@@ -91,7 +91,7 @@ test.describe('Browser Context Tests', () => {
         }
     });
 
-    test.only(' Should handle authentication in a browser context', async ({ browser }) => {
+    test(' Should handle authentication in a browser context', async ({ browser }) => {
         const context = await browser.newContext({
             httpCredentials:
                 { username: 'admin', password: 'admin' }
@@ -104,5 +104,33 @@ test.describe('Browser Context Tests', () => {
         await context.close();
     });
 
+    test('Should handle browser settings', async () => {
+        
+        const browser = await chromium.launch({headless: false});
+        const context = await browser.newContext({
+            viewport: {width: 800, height: 800},
+            locale: 'en-US',
+            // proxy:{server: 'https://myproxy.com:3245'},
+            ignoreHTTPSErrors: true
+
+        });
+        const page = await context.newPage();
+        await page.goto('https://www.google.com/');
+        await page.waitForTimeout(2000);
+        await context.close();
+    });
+
+   test.only('Should set and get cookies in a browser context', async ({ browser }) => {
+        const context = await browser.newContext();
+        const page = await context.newPage();
+        await context.addCookies([{ name: 'testCookie', value: 'cookieValue', domain: 'example.com', path: '/' }]);
+        await page.goto('https://example.com');
+        const cookies = await context.cookies('https://example.com');
+        const testCookie = cookies.find(cookie => cookie.name === 'testCookie');
+        console.log("Cookie Detail: ", testCookie);
+        expect(testCookie).toBeDefined();
+        expect(testCookie?.value).toBe('cookieValue');
+        await context.close();
+    });     
 
 });
