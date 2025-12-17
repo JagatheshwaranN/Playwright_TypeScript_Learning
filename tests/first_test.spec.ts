@@ -9,7 +9,7 @@ test("Verify Page Title", async ({page})=> {
 
 test("Verify Page URL", async ({page})=> {
     await page.goto("https://playwright.dev/");
-    let pageURL = await page.url();
+    let pageURL = page.url();
     console.log("Page URL: ", pageURL);
     await expect(page).toHaveURL(/playwright/);
 })
