@@ -13,4 +13,4 @@ test.only('Should handle flaky test', async ({ page }) => {
     await page.getByRole('button', { name: ' Login' }).click();
     await page.waitForTimeout(8000);
     await expect(page.locator('#flash')).toContainText('You logged into a secure area! ×');
-})
+}) 

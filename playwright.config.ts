@@ -19,6 +19,10 @@ export default defineConfig({
   // To change the timeout for all test expect (default is 5000 ms)
   // expect: { timeout: 10000 },
 
+  // To execute test based on tag
+  // grep: /@sanity/,
+  // grepInvert: /@functional/,
+
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -36,7 +40,7 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    screenshot:'off',
+    screenshot: 'off',
     video: 'off',
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
