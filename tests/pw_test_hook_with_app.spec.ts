@@ -20,7 +20,7 @@ test.beforeEach('Login to Application', async () => {
     await page.getByRole('button', { name: ' Login' }).click();
 })
 
-test.afterEach('LOgout from Application', async () => {
+test.afterEach('Logout from Application', async () => {
     await page.getByRole('link', { name: 'Logout' }).click();
     await expect(page.locator('#flash')).toContainText('You logged out of the secure area! ×');
 })
