@@ -1,0 +1,22 @@
+[
+  {
+    "email": "tomsmith",
+    "password": "SuperSecretPassword!",
+    "validCheck": "valid"
+  },
+  {
+    "email": "tomsmit",
+    "password": "SuperSecretPassword!",
+    "validCheck": "invalid"
+  },
+  {
+    "email": "tomsmith",
+    "password": "SuperSecretPassword",
+    "validCheck": "invalid"
+  },
+  {
+    "email": "",
+    "password": "",
+    "validCheck": "invalid"
+  }
+]

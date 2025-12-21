@@ -1,0 +1,5 @@
+email,password,validCheck
+tomsmith,SuperSecretPassword!,valid
+tomsmit,SuperSecretPassword!,invalid
+tomsmith,SuperSecretPassword,invalid
+,,invalid
