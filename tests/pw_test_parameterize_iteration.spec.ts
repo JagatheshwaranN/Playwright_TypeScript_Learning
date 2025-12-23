@@ -2,40 +2,40 @@ import { test, expect } from '@playwright/test';
 
 const searchItems: string[] = ['Laptop', 'Gift Card', 'Smartphone', 'Monitor'];
 
-// for(const item of searchItems) {
-//     test(`Search Item Test - ${item}`, async({page})=> {
-//         await page.goto('https://demowebshop.tricentis.com/');
-//         await page.locator('#small-searchterms').fill(item);
-//         await page.locator('.button-1.search-box-button').click();
-//         const productTitle =  page.locator('.product-title').nth(0);
-//         await expect(productTitle).toContainText(item);
-//         await page.waitForTimeout(2000);
-//     });
-// }
+for(const item of searchItems) {
+    test(`Search Item Test - ${item}`, async({page})=> {
+        await page.goto('https://demowebshop.tricentis.com/');
+        await page.locator('#small-searchterms').fill(item);
+        await page.locator('.button-1.search-box-button').click();
+        const productTitle =  page.locator('.product-title').nth(0);
+        await expect(productTitle).toContainText(item);
+        await page.waitForTimeout(2000);
+    });
+}
 
-// searchItems.forEach((item) => {
-//     test(`Search Item Test - ${item}`, async ({ page }) => {
-//         await page.goto('https://demowebshop.tricentis.com/');
-//         await page.locator('#small-searchterms').fill(item);
-//         await page.locator('.button-1.search-box-button').click();
-//         const productTitle = page.locator('.product-title').nth(0);
-//         await expect(productTitle).toContainText(item);
-//         await page.waitForTimeout(2000);
-//     });
-// })
+searchItems.forEach((item) => {
+    test(`Search Item Test - ${item}`, async ({ page }) => {
+        await page.goto('https://demowebshop.tricentis.com/');
+        await page.locator('#small-searchterms').fill(item);
+        await page.locator('.button-1.search-box-button').click();
+        const productTitle = page.locator('.product-title').nth(0);
+        await expect(productTitle).toContainText(item);
+        await page.waitForTimeout(2000);
+    });
+})
 
-// test.describe("Search Items - Parameterization", async () => {
-//     searchItems.forEach((item) => {
-//         test(`Search Item Test - ${item}`, async ({ page }) => {
-//             await page.goto('https://demowebshop.tricentis.com/');
-//             await page.locator('#small-searchterms').fill(item);
-//             await page.locator('.button-1.search-box-button').click();
-//             const productTitle = page.locator('.product-title').nth(0);
-//             await expect(productTitle).toContainText(item);
-//             await page.waitForTimeout(2000);
-//         });
-//     })
-// })
+test.describe("Search Items - Parameterization", async () => {
+    searchItems.forEach((item) => {
+        test(`Search Item Test - ${item}`, async ({ page }) => {
+            await page.goto('https://demowebshop.tricentis.com/');
+            await page.locator('#small-searchterms').fill(item);
+            await page.locator('.button-1.search-box-button').click();
+            const productTitle = page.locator('.product-title').nth(0);
+            await expect(productTitle).toContainText(item);
+            await page.waitForTimeout(2000);
+        });
+    })
+})
 
 const loginData: string[][] = [
     ['tomsmith', 'SuperSecretPassword!', 'valid'],

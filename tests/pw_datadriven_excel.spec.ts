@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
-import fs from 'fs';
 import * as XLSX from 'xlsx';
 
+// npm install xlsx
 const excelPath = "tests/data/login.xlsx";
 const workbook = XLSX.readFile(excelPath);
 const sheetName = workbook.SheetNames[0];
