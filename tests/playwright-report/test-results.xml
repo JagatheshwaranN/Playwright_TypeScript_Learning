@@ -1,0 +1,10 @@
+<testsuites id="" name="" tests="3" failures="0" skipped="0" errors="0" time="9.565766">
+<testsuite name="pw_html_report.spec.ts" timestamp="2025-12-23T23:42:53.725Z" hostname="chromium" tests="3" failures="0" skipped="0" time="11.256" errors="0">
+<testcase name="HTML Report Test Suite › Logo Visibility Test" classname="pw_html_report.spec.ts" time="3.569">
+</testcase>
+<testcase name="HTML Report Test Suite › Title Verification Test" classname="pw_html_report.spec.ts" time="3.212">
+</testcase>
+<testcase name="HTML Report Test Suite › Search Functionality Test" classname="pw_html_report.spec.ts" time="4.475">
+</testcase>
+</testsuite>
+</testsuites>

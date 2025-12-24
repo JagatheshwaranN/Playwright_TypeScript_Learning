@@ -1,0 +1,8 @@
+To generate the allure report
+=============================
+1. Follow the steps in https://allurereport.org/docs/playwright/ -> https://allurereport.org/docs/v2/install/
+2. Add the allure bin directory to the Path variable.
+3. Run the command - npm install -g allure-commandline --save-dev
+4. To generate the report - allure generate ./allure-results -o ./tests/allure-report
+5. To clean the previous report - allure generate ./allure-results -o ./tests/allure-report --clean
+6. To view the report - allure open ./tests/allure-report
