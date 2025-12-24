@@ -40,7 +40,7 @@ export default defineConfig({
   // workers: 2
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  // reporter: 'html',
+  reporter: 'html',
 
   //   reporter: [['html', { open: 'always', outputFolder: 'tests/playwright-report' }],
   //   ['json', { outputFile: 'tests/playwright-report/test-results.json' }],
@@ -50,7 +50,7 @@ export default defineConfig({
   //   ['dot']
   // ],
   // reporter: [['allure-playwright']],
-  reporter: [['./tests/pw_custom_report.spec.ts']],
+  // reporter: [['./tests/pw_custom_report.spec.ts']],
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
