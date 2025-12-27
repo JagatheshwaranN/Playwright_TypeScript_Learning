@@ -45,7 +45,7 @@ test.describe('Accessibility tests', () => {
     expect(accessibilityScanResults.violations.length).toEqual(2);
   });
 
-  test.only('should have no accessibility violations on the example todo app', async ({page}) => {
+  test.only('should have no accessibility violations on the w3 website', async ({page}) => {
     await page.goto('https://www.w3.org/');
     const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
     expect(accessibilityScanResults.violations.length).toEqual(0);
