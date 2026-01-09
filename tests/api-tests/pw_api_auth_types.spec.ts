@@ -1,8 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('API Authentication Types', () => {
-    const apiEndpoint = 'https://example.com/api/protected-resource';
-
+   
     test.only('should authenticate using API Key', async ({ request }) => {
         // https://api.nettoolkit.com/v1/account/test-api-keys - To get API Key
         const apiKey = 'test_uyeG7D6zqqDxwfo6kPKkUJCJaXzLP6IJFVrFpWyy';
