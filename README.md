@@ -6,6 +6,7 @@ npx playwright test
 
 To run specific playwright test
 npx playwright test <test_script_name>
+npx playwright test tests/pw_file_actions.spec.ts
 
 To run specific set of playwright tests
 npx playwright test <test_script1_name> <test_script2_name>
