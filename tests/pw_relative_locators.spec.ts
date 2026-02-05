@@ -11,7 +11,7 @@ test.describe('Relative Locators in Playwright', () => {
         await page.waitForTimeout(3000); // Just for demonstration purposes
     });
 
-    test('should locate element above another element', async () => { 
+    test('should locate element above another element', async () => {
         const browser = await chromium.launch({ headless: false });
         const context = await browser.newContext();
         const page = await context.newPage();
@@ -20,19 +20,31 @@ test.describe('Relative Locators in Playwright', () => {
         await page.waitForTimeout(3000); // Just for demonstration purposes
     });
 
-    // test('should locate element to the left of another element', async ({page}) => { 
-    //     const referenceElement = page.locator('text=Reference Element');
-    //     const targetElement = page.locator('text=Target Element').toLeftOf(referenceElement);  
-    //     await expect(targetElement).toBeVisible();
-    // }); 
+    test('should locate element to the left of another element', async () => { 
+       const browser = await chromium.launch({ headless: false });
+        const context = await browser.newContext();
+        const page = await context.newPage();
+        await page.goto('https://automationbookstore.dev/');
+        const element = await page.$("li:left-of(:text('Advanced Selenium in Java'))");
+        const text = await element?.innerText();
+        expect(text).toContain('Java For Testers');
+        console.log(text);
+        await page.waitForTimeout(3000); // Just for demonstration purposes
+    }); 
 
-    // test('should locate element to the right of another element', async ({page}) => {
-    //     const referenceElement = page.locator('text=Reference Element');
-    //     const targetElement = page.locator('text=Target Element').toRightOf(referenceElement);  
-    //     await expect(targetElement).toBeVisible();
-    // });
+    test('should locate element to the right of another element', async () => {
+        const browser = await chromium.launch({ headless: false });
+        const context = await browser.newContext();
+        const page = await context.newPage();
+        await page.goto('https://automationbookstore.dev/');
+        const element = await page.$("li:right-of(:text('Java For Testers'))");
+        const text = await element?.innerText();
+        expect(text).toContain('Advanced Selenium in Java');
+        console.log(text);
+        await page.waitForTimeout(3000); // Just for demonstration purposes
+    });
 
-    test('should locate element near another element', async () => { 
+    test('should locate element near another element', async () => {
         const browser = await chromium.launch({ headless: false });
         const context = await browser.newContext();
         const page = await context.newPage();
@@ -40,6 +52,6 @@ test.describe('Relative Locators in Playwright', () => {
         await page.click("a:near(:text('password'))");
         expect(page.url()).toBe("https://github.com/password_reset");
         await page.waitForTimeout(3000); // Just for demonstration purposes
-    }); 
+    });
 
 });
